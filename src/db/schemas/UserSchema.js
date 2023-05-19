@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { Schema } from "mongoose"
 
 const UserSchema = new Schema(
   {
@@ -16,6 +16,6 @@ const UserSchema = new Schema(
     },
   },
   { timestamps: true }
-);
+)
 
-export default UserSchema;
+export default UserSchema

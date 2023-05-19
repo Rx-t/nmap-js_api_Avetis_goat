@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { Schema } from "mongoose"
 
 const HistorySchema = new Schema(
   {
@@ -20,6 +20,6 @@ const HistorySchema = new Schema(
     },
   },
   { timestamps: true }
-);
+)
 
-export default HistorySchema;
+export default HistorySchema

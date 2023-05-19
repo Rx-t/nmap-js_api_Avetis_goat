@@ -1,22 +1,24 @@
 export const nmapParser = (nmapOutput) => {
-  console.log(nmapOutput);
-  const lines = nmapOutput.split("\n");
+  console.log(nmapOutput)
+  const lines = nmapOutput.split("\n")
   const tableStartIndex = lines.findIndex((line) =>
     line.includes("PORT    STATE SERVICE")
-  );
+  )
 
   const tableData = lines
     .slice(tableStartIndex + 1)
     .map((line) => {
-      const [port, state, service] = line.trim().split(/\s+/);
-      if (port.endsWith("/tcp" || "/udp")) {
-        return { port, state, service };
-      }
-      return null;
-    })
-    .filter((item) => item !== null); // Filtrer les éléments null
+      const [port, state, service] = line.trim().split(/\s+/)
 
-  if (!tableData.length || !lines.length) return null;
+      if (port.endsWith("/tcp" || "/udp")) {
+        return { port, state, service }
+      }
+      
+return null
+    })
+    .filter((item) => item !== null) // Filtrer les éléments null
+
+  if (!tableData.length || !lines.length) {return null}
 
   const nmapInfo = {
     startTime: lines[0].match(/\d{4}-\d{2}-\d{2} \d{2}:\d{2} [A-Z]+/)?.[0],
@@ -31,7 +33,7 @@ export const nmapParser = (nmapOutput) => {
     ),
     tableData: tableData,
     nmapResult: nmapOutput,
-  };
+  }
 
-  return nmapInfo;
-};
+  return nmapInfo
+}
